@@ -4,6 +4,7 @@ Configuration loader from postgres storage.
 
 
 ####Methods
+
 * _/v1/config/apply_ - create or update configuration. 
 
 Request:
