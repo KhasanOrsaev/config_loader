@@ -1,0 +1,22 @@
+connections:
+  postgres:
+    host: DATABASE_HOST
+    user: DATABASE_USER
+    password: DATABASE_PASSWORD
+    database: DATABASE_NAME
+webservice:
+  port: CONF_PORT
+  routes:
+    config-apply: /v1/config/apply
+    config-get: /v1/config/get
+  functions:
+    config-apply: select * from cs_config.config_apply($1, $2, $3, $4);
+    config-get: select * from cs_config.config_get( $1, $2)
+auth-webservice:
+  host: AUTH_HOST
+  port: AUTH_PORT
+  route: /v1/auth/access/login
+log:
+  format: "[%s] %s.%s message: %s context: %s extra: %s"
+  service_name: config-webservice
+  level: 4
